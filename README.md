@@ -1,5 +1,5 @@
-# # Pyramid Transformer Net-3D (PTNet3D)
-Public code for 3D version of Pyramid Transformer Network (PTNet). Our PTNet achieve consistently better performance in high-resolution and longitudinal infant brain MRI synthesis than previous SOTA methods. 
+# Pyramid Transformer Net-3D (PTNet3D)
+Public code for 3D version of Pyramid Transformer Network (PTNet3D). Our PTNet achieve consistently better performance in high-resolution and longitudinal infant brain MRI synthesis than previous SOTA methods. 
 
 Example on synthesizing 3-month-old infant T2w conditioned on T1w:
 ![3Months](3mres-10.png)
