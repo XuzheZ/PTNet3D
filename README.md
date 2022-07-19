@@ -4,4 +4,4 @@ Public code for 3D version of Pyramid Transformer Network (PTNet3D). Our PTNet a
 Example on synthesizing 3-month-old infant T2w conditioned on T1w:
 ![3Months](3mres-10.png)
 
-Complete codes, documentations, and demos will be publicly available upon paper's acceptance. Check the previuos 2D version: https://github.com/XuzheZ/PTNet
+Complete documentations, and demos will be publicly available upon paper's acceptance. Check the previuos 2D version: https://github.com/XuzheZ/PTNet
