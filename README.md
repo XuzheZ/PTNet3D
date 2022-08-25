@@ -20,7 +20,7 @@ You can change more hyperparameters in the option scripts. For a complete set of
 the model is trained to convert modality in train_A to modality in train_B, please make sure all scans are well-coregistered and artifacts-free.
 
 ### Inference: 
-    python test.py --name YourProjName --checkpoints_dir YourModelPath --dataroot YourDatasetPath --opt.whichmodel YourModelName
+    python test.py --name YourProjName --checkpoints_dir YourModelPath --dataroot YourDatasetPath --whichmodel YourModelName
 the model specified by opt.whichmodel will be used to convert the scans in /opt.dataroot/test_A. opt.whichmodel should be the full name of stored checkpoint. 
 
 ## Training tips:
