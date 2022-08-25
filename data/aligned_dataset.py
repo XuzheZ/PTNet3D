@@ -17,14 +17,14 @@ class AlignedDataset(BaseDataset):
     def initialize(self, opt):
         self.opt = opt
         self.root = opt.dataroot
-        ###
-        ### input A (source domain)
+
+        ### input A (label maps)
         dir_A = '_A'
         self.dir_A = os.path.join(opt.dataroot, opt.phase + dir_A)
         self.A_paths = sorted(make_dataset(self.dir_A, opt.extension))
         assert self.A_paths, 'modality A can not find files with extension ' + opt.extension
-        ### input B (target domain)
-        ### if you are converting T1w to T2w, please put training T1w scans into train_A and training T2w scans into train_B
+        ### input B (real images)
+        # if opt.isTrain:
         dir_B = '_B'
         self.dir_B = os.path.join(opt.dataroot, opt.phase + dir_B)
         self.B_paths = sorted(make_dataset(self.dir_B, opt.extension))
@@ -68,7 +68,7 @@ class AlignedDataset(BaseDataset):
                     i + 1) + ' dimension is smaller than corresponding patch size'
 
             if self.opt.remove_bg:
-                bound = get_bounds(tmp_scansA[0])
+                bound = get_bounds(tmp_scansA)
                 assert bound[1] - x > bound[0], 'first dimension is smaller than patch size after removing background, ' \
                                                 'cosider padding or setting remove_bg as false '
                 assert bound[3] - y > bound[

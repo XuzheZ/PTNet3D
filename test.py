@@ -14,7 +14,7 @@ PTNet.cuda()
 PTNet.eval()
 PTNet.load_state_dict(torch.load(os.path.join(opt.checkpoints_dir, opt.name, opt.whichmodel)))
 
-test_path = os.path.join(opt.dataroot, 'test_A')
+test_path = os.path.join(opt.dataroot, 'T1s')
 
 des = os.path.join(opt.dataroot, opt.name+'_'+opt.whichmodel)
 if not os.path.exists(des):
@@ -64,8 +64,5 @@ with torch.no_grad():
                 ipt = ipt.reshape((1, 1,) + ipt.shape)
                 pred[idx] = torch.squeeze(PTNet(ipt)).detach().cpu().numpy()
         ori_scan = nib.load(os.path.join(test_path, i))
-        pred = (pred+1)/2  # convert to [0,1]
-
-
         sav_img = nib.Nifti1Image(pred, ori_scan.affine, header=ori_scan.header)
         nib.save(sav_img, os.path.join(des, pred_name))
