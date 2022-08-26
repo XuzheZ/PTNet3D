@@ -17,7 +17,7 @@ You can change more hyperparameters in the option scripts. For a complete set of
         - train_A # your source domain scans
         - train_B # your target domain scans
         - test_A # will be used for inference
-the model is trained to convert modality in train_A to modality in train_B, please make sure all scans are well-coregistered and artifacts-free.
+the model is trained to convert modality in train_A to modality in train_B, please make sure all scans are well-coregistered and artifacts-free. Scans in train_A and train_B shall have the same file name.
 
 ### Inference: 
     python test.py --name YourProjName --checkpoints_dir YourModelPath --dataroot YourDatasetPath --whichmodel YourModelName
