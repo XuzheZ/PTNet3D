@@ -30,7 +30,9 @@ In 2D experiments, we just resliced volumetric scan by taking the axial slice. I
 
 In 3D experiments, we first use sliding window sampling to sample 3D blocks from the whole brain (non-zero region) with overlapping. By doing that, we generated over **200 ROIs per scans**. Therefore, in training, we trained the model for 10 epochs on dHCP and 6 epochs on BCP because we have ~ 50,000 ROIs on each datasets. 
 
-In this repo, to simplify the sampling, we choose **random sampling** in non-zero region of the volumetric scan instead of excessive overlapping sampling (details in ./data/aligned_dataset.py). Therefore, you might need use **a larger number epochs** for training. For instance, if we re-train the model on dHCP dataset, we should use **2,000 epochs** instead of 10 epochs for training because in each epoch, there are only 291 randomly-sampled ROIs. 
+In this repo, to simplify the sampling, we choose **random sampling** in non-zero region of the volumetric scan instead of excessive overlapping sampling (details in ./data/aligned_dataset.py). This results in **ONE*** ROI per scan. Therefore, you should use **a much larger number epochs** for training. For instance, if we re-train the model on dHCP dataset, we should use **2,000 epochs** instead of 10 epochs for training because in each epoch, there are only 291 randomly-sampled ROIs. 
+
+A tip for selecting epoch numbers: epoch num = 500,000 / number of volumetric scans you have. For example, if you have 1,000 scans, you can use 500 epochs (250 for niter in train_options.py and 250 for niter_decay in train_options.py). 
 
 ## Citation: 
 If you use our code in your research, please cite our paper: [PTNet3D: A 3D High-Resolution Longitudinal Infant Brain MRI Synthesizer Based on Transformers](https://ieeexplore.ieee.org/document/9774943)
