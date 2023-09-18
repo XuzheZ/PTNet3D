@@ -24,7 +24,7 @@ class BaseOptions():
         self.parser.add_argument('--norm_perc', type=float, default=99.95, help='intensity over norm_perc% percentile will be set as 1 while performing 0-1 normalization')
         self.parser.add_argument('--patch_size', type=tuple, default=(64, 64, 64),
                                  help='size of 3D patch')
-        self.parser.add_argument('--remove_bg', type=bool, default=True, help='whether to only sample inside the scan (non-zero), requires to have positive value for any foreground pixels')
+        self.parser.add_argument('--remove_bg', type=bool, default=False, help='whether to only sample inside the scan (non-zero), requires to have positive value for any foreground pixels')
 
         # for displays
         self.parser.add_argument('--display_winsize', type=int, default=512,  help='display size during training in ./web/index.html')
