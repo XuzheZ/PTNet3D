@@ -1,0 +1,9 @@
+nibabel
+nvgpu
+torch
+numpy
+pillow
+nibabel
+pandas
+timm
+unfoldNd
